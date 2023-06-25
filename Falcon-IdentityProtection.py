@@ -1,6 +1,6 @@
 register_module_line('Falcon-IdentityProtection', 'start', __line__())
 #######################
-# Description: CrowdStrike Falcon API Integration - CAG for XSOAR
+# Description: CrowdStrike Falcon API Integration - for XSOAR
 # Author: Joshua Kelley
 # Creation: June 2023
 #######################
