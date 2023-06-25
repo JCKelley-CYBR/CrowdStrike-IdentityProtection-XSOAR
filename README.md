@@ -3,13 +3,14 @@ Author: Joshua Kelley
 Version: 1.0.0
 
 # Overview:
+This integration allows you to pull incidents from CrowdStrike Identity Protection into Cortex XSOAR (aka Demisto)., and allows you to manually fetch incidents from the Identity Protection API. The GraphQL query used to fetch incidents can be modied to pull additional information from the API, and the integration can be modified to pull additional information from the API as well.
 
 ## Use Cases:
 - Pulling incidents from CrowdStrike Identity Protection API into Cortex XSOAR
 
 ## Configuration Steps:
 1. Navigate to **Settings** > **Integrations** and click **BYOI**.
-2. Copy the content of [this file](FIXME) into the Integration coding area.
+2. Copy the content of [this file](https://github.com/JCKelley-CYBR/CrowdStrike-IdentityProtection-XSOAR/blob/main/Falcon-IdentityProtection.py) into the Integration coding area.
 3. Name the integration **Falcon-IdentityProtection**.
    1. Select **Fetches incidents**.
 4. Create **two** Parameters:
