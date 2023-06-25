@@ -9,7 +9,7 @@ Version: 1.0.0
 
 ## Configuration Steps:
 1. Navigate to **Settings** > **Integrations** and click **BYOI**.
-2. Copy the content of [this file](FIXME) into the Integration coding area.
+2. Copy the content of [this file](https://github.com/JCKelley-CYBR/CrowdStrike-IdentityProtection-XSOAR/blob/main/Falcon-IdentityProtection.py) into the Integration coding area.
 3. Name the integration **Falcon-IdentityProtection**.
    1. Select **Fetches incidents**.
 4. Create **two** Parameters:
