@@ -1,5 +1,6 @@
 # CrowdStrike Idenity Protection Integration for Cortex XSOAR (aka Demisto):
 Author: Joshua Kelley
+
 Version: 1.0.0
 
 # Overview:
