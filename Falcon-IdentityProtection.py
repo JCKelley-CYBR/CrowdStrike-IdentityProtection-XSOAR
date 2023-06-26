@@ -11,7 +11,7 @@ import urllib3
 from datetime import datetime, timedelta, timezone
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-INTEGRATION_NAME='Falcon-Api-Integration-CAG'
+INTEGRATION_NAME='Falcon-IdentityProtection'
 CLIENT_ID = demisto.params().get('credentials', {}).get('identifier') or demisto.params().get('client_id')
 CLIENT_SECRET = demisto.params().get('credentials', {}).get('password') or demisto.params().get('secret')
 
