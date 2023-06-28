@@ -49,6 +49,7 @@ def GetDetections(falcon):
                         startTime
                         endTime
                         alertEvents {
+                            __typename
                             alertId
                             state {
                                 lifeCycleStage
@@ -60,12 +61,34 @@ def GetDetections(falcon):
                             eventSeverity
                             startTime
                             endTime
-                            resolved
-                            entities {
-                                type
+                            userEntity {
+                                __typename
                                 primaryDisplayName
                                 secondaryDisplayName
-                                hasADDomainAdminRole
+                                emailAddresses
+                                mostRecentActivity
+                                accounts {
+                                    __typename
+                                    enabled
+                                    description
+                                    dataSource
+                                }
+                            }
+                            endpointEntity {
+                                __typename
+                                primaryDisplayName
+                                hostName
+                                mostRecentActivity
+                                agentId
+                                lastIpAddress
+                                operatingSystemInfo {
+                                    __typename
+                                    displayName
+                                    version
+                                    servicePack
+                                    target
+                                    name
+                                }
                             }
                         }
                     }
@@ -101,7 +124,7 @@ def IdentityProtection():
         if incident['node']['lifeCycleStage'] == 'NEW':
             incident_data = json.dumps(incident, indent=4)
             alert_return.append({
-                'name': "CS Identity Protection: " + incident['node']['type'],
+                'name': "CS Identity Protection: " + incident['node']['incidentId'] + " " + incident['node']['type'],
                 'occurred': datetime.now(timezone.utc).astimezone().isoformat(),
                 'dbotMirrorId': incident['node']['incidentId'],
                 'rawJSON': incident_data
