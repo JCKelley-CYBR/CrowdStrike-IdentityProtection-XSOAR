@@ -8,6 +8,7 @@ This integration allows you to pull incidents from CrowdStrike Identity Protecti
 
 ## Use Cases:
 - Pulling incidents from CrowdStrike Identity Protection API into Cortex XSOAR
+- Set incident state and send comments to CrowdStrike Identity Protection API from Cortex XSOAR
 
 ## Configuration Steps:
 1. Navigate to **Settings** > **Integrations** and click **BYOI**.
@@ -26,7 +27,15 @@ This integration allows you to pull incidents from CrowdStrike Identity Protecti
       4. Set **Additional information** to "The Interval at which incidents will be fetched from CrowdStrike Identity Protection (Set this to be the same as the rest of XSOAR for fetching incidents, or you'll get duplicates)."
 5. Add **Command(s)**
    1. `identity-fetch-incidents` - This command will allow you to manually fetch incident details and post them to the War Room or playground.
-   2. You do not need to add `test-module` as a command since its used by default with the test button in the integration settings, and `fetch-incidents` is used by default to fetch in the integration settings.
+   2. For setting incident states and sending comments to CrowdStrike Identity Incidents, you will also need to create a command: `Falcon-SetIncident`
+      1. This command will require 3 arguments:
+         1. action: The action to take on the incident. 
+            1. Set to one of the following: `"DISMISS", "IN_PROGRESS", "NEW", or "RESOLVED"`
+         2. reason: The reason for the action, this is your comment. 
+            1. Ex. `This incident has been resolved.`
+         3. eventid: The eventid of the incident you want to take action on. 
+            1. Ex. `INC-12345`
+   3. You do not need to add `test-module` as a command since its used by default with the test button in the integration settings, and `fetch-incidents` is used by default to fetch in the integration settings.
 6. Also, you will need to use a Docker image that has the **crowdstrike-falconpy** python module installed. 
    1. You can use a command like this to build your own image: 
    2. `/docker_image_create name={NAME HERE} base="demisto/python3-VERSION" dependencies="crowdstrike-falconpy"` 
